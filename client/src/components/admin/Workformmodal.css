@@ -3,7 +3,6 @@
    Colors are pulled straight from the site's @theme tokens
    (--color-primary, --color-primary-dark, --color-gold-line, etc.)
    so this file only adds shape, motion & effects on top of them. */
-
 /* ---------- Backdrop ---------- */
 .wf-backdrop {
   background: rgba(0, 27, 46, 0.6); /* primary-dark, translucent */

@@ -5,7 +5,7 @@ import morgan from "morgan";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import rateLimit from "express-rate-limit";
-
+import authRoutes from "./routes/authRoutes.js";
 import workRoutes from "./routes/workRoutes.js";
 import notFound from "./middleware/notFound.js";
 import errorHandler from "./middleware/errorHandler.js";
@@ -20,6 +20,7 @@ app.use(
     contentSecurityPolicy: false,
   }),
 );
+app.use("/api/auth", authRoutes);
 app.use(compression());
 app.use(
   cors({

@@ -6,7 +6,6 @@ export const createWork = asyncHandler(async (req, res) => {
   const work = await workService.createWork(req.body);
   res.status(201).json(new ApiResponse(201, work, "Work created successfully"));
 });
-
 export const getWorks = asyncHandler(async (req, res) => {
   const { page, limit, category } = req.query;
   const result = await workService.getAllWorks({ page, limit, category });

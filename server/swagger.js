@@ -5,6 +5,12 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Convert to forward slashes for cross-platform glob compatibility
+const routesPath = path
+  .join(__dirname, "routes", "*.js")
+  .split(path.sep)
+  .join("/");
+
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -33,7 +39,7 @@ const options = {
       },
     },
   },
-  apis: [path.join(__dirname, "routes", "*.js")],
+  apis: [routesPath],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

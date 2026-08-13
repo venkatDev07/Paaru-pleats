@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { uploadImageToCloudinary } from '../../services/cloudinary'
-import './WorkFormModal.css'
+import './Work.css'
 
 const categories = ['Silk', 'Cotton', 'Georgette', 'Chiffon', 'Banarasi', 'Kanjivaram', 'Other']
 

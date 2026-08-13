@@ -20,7 +20,6 @@ app.use(
     contentSecurityPolicy: false,
   }),
 );
-// app.use("/api/auth", authRoutes);
 app.use(compression());
 app.use(
   cors({

@@ -1,0 +1,56 @@
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
+import compression from "compression";
+import cookieParser from "cookie-parser";
+import rateLimit from "express-rate-limit";
+
+import workRoutes from "./routes/workRoutes.js";
+import notFound from "./middleware/notFound.js";
+import errorHandler from "./middleware/errorHandler.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./swagger.js";
+
+const app = express();
+
+// Security & performance middleware
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  }),
+);
+app.use(compression());
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  }),
+);
+
+// Rate limiting - prevents abuse
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 200, // limit each IP to 200 requests per window
+});
+app.use("/api", limiter);
+
+// Body parsing
+app.use(express.json({ limit: "10mb" }));
+app.use(cookieParser());
+
+// Logging (only in development)
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
+// Routes
+app.get("/", (req, res) => res.send("Saree Pleating API is running"));
+app.use("/api/works", workRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Error handling (must be last)
+app.use(notFound);
+app.use(errorHandler);
+
+export default app;

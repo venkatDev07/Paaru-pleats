@@ -28,7 +28,7 @@ function WhyChooseUs() {
             <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--color-rose)]/10 rounded-full blur-3xl blob" />
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-[var(--color-teal)]/10 rounded-full blur-3xl blob" style={{ animationDelay: '4s' }} />
 
-            <div className="relative max-w-6xl mx-auto px-6">
+            <div className="relative  mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

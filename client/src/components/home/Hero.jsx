@@ -69,7 +69,7 @@ function Hero() {
             <div className="absolute top-1/3 left-1/2 w-72 h-72 bg-[var(--color-rose)]/15 rounded-full blur-3xl blob" style={{ animationDelay: '6s' }} />
             <div className="texture-dots absolute inset-0 opacity-[0.04] pointer-events-none" />
 
-            <div className="relative flex-1 flex items-center max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12">
+            <div className="relative flex-1 flex items-center  mx-auto px-6 w-full grid md:grid-cols-2 gap-12">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ function Hero() {
                 transition={{ duration: 0.8, delay: 1.2 }}
                 className="relative border-t border-cream/10 bg-primary-dark/40"
             >
-                <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+                <div className=" mx-auto px-6 py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
                     {fabrics.map((fabric) => (
                         <span key={fabric} className="text-cream/50 text-sm font-accent italic tracking-wide">
                             {fabric}

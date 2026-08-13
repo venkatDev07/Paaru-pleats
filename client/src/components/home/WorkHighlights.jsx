@@ -11,7 +11,7 @@ function WorkHighlights() {
     return (
         <section className="relative py-24 bg-white overflow-hidden">
             <div className="texture-dots absolute inset-0 opacity-[0.03] pointer-events-none" />
-            <div className="relative max-w-6xl mx-auto px-6">
+            <div className="relative  mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

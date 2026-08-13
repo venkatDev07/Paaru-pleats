@@ -6,8 +6,8 @@ if (!globalThis.crypto) {
 import dotenv from "dotenv";
 dotenv.config();
 
-import app from "./app.js";
-import connectDB from "./config/db.js";
+const { default: app } = await import("./app.js");
+const { default: connectDB } = await import("./config/db.js");
 
 connectDB();
 

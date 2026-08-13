@@ -13,7 +13,7 @@ import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./swagger.js";
 
 const app = express();
-
+console.log('CLIENT_URL is:', process.env.CLIENT_URL)
 app.set("trust proxy", 1);
 
 // Security & performance middleware

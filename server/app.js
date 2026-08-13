@@ -14,6 +14,8 @@ import swaggerSpec from "./swagger.js";
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 // Security & performance middleware
 app.use(
   helmet({

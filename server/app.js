@@ -20,7 +20,7 @@ app.use(
     contentSecurityPolicy: false,
   }),
 );
-app.use("/api/auth", authRoutes);
+// app.use("/api/auth", authRoutes);
 app.use(compression());
 app.use(
   cors({
@@ -31,12 +31,12 @@ app.use(
 
 // Rate limiting - prevents abuse
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 200, // limit each IP to 200 requests per window
+  windowMs: 15 * 60 * 1000,
+  max: 200,
 });
 app.use("/api", limiter);
 
-// Body parsing
+// Body parsing - MUST come before routes
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 
@@ -45,8 +45,9 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-// Routes
+// Routes - come after all middleware above
 app.get("/", (req, res) => res.send("Saree Pleating API is running"));
+app.use("/api/auth", authRoutes);
 app.use("/api/works", workRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

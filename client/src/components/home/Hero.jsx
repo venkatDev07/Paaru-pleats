@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import './Hero.css'
 
 // The signature motif: a stack of angled panels, echoing pleats fanned
 // out then pressed flat. Layers sit rotated at rest and straighten on

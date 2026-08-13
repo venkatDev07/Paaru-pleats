@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-
+import './WorkHighlights.css'
 const sampleWorks = [
     { id: 1, title: 'Silk Saree Pleating', date: 'Aug 5, 2026', tag: 'Silk', color: '#e0587a' },
     { id: 2, title: 'Cotton Saree Pleating', date: 'Aug 4, 2026', tag: 'Cotton', color: '#0f6b62' },

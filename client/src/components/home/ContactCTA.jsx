@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-
+import './ContactCTA.css'
 const particles = [
     { left: '8%', delay: 0, color: '#e3a63e' },
     { left: '22%', delay: 2, color: '#e0587a' },

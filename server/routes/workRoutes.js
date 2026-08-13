@@ -6,10 +6,10 @@ import {
   updateWork,
   deleteWork,
 } from "../controllers/workController.js";
-import { validate, createWorkSchema } from "../validators/workValidator.js";
 import { validate } from "../middleware/validate.js";
 import { createWorkSchema } from "../validators/workValidator.js";
 import protect from "../middleware/protect.js";
+
 const router = express.Router();
 
 router.post("/", protect, validate(createWorkSchema), createWork);

@@ -1,0 +1,344 @@
+/* WorkFormModal.css
+   Visual/animation layer for the "Add / Edit Work" modal.
+   Colors are pulled straight from the site's @theme tokens
+   (--color-primary, --color-primary-dark, --color-gold-line, etc.)
+   so this file only adds shape, motion & effects on top of them. */
+
+/* ---------- Backdrop ---------- */
+.wf-backdrop {
+  background: rgba(0, 27, 46, 0.6); /* primary-dark, translucent */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* ---------- Modal shell ---------- */
+.wf-modal {
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  box-shadow: var(--shadow-lift);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold-line) transparent;
+}
+
+@media (min-width: 640px) {
+  .wf-modal {
+    border-radius: var(--radius-card);
+  }
+}
+
+.wf-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wf-modal::-webkit-scrollbar-thumb {
+  background: var(--color-gold-line);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Header ---------- */
+.wf-header {
+  position: relative;
+  z-index: 2;
+}
+
+.wf-header::after {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold-line) 20%,
+    var(--color-gold-line) 80%,
+    transparent
+  );
+}
+
+.wf-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  color: var(--color-primary-dark);
+}
+
+.wf-close {
+  font-size: 1.6rem;
+  line-height: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  transition:
+    transform var(--duration-fast) var(--ease-silk),
+    background-color var(--duration-fast) var(--ease-silk),
+    color var(--duration-fast) var(--ease-silk);
+}
+
+.wf-close:hover {
+  background: rgba(0, 49, 83, 0.08); /* primary tint */
+  color: var(--color-primary-dark);
+  transform: rotate(90deg);
+}
+
+/* ---------- Dropzone ---------- */
+.wf-dropzone {
+  border: 2px dashed var(--color-gold-line);
+  transition:
+    border-color var(--duration-fast) var(--ease-silk),
+    box-shadow var(--duration-fast) var(--ease-silk),
+    transform var(--duration-fast) var(--ease-silk);
+}
+
+.wf-dropzone:hover {
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.1);
+}
+
+.wf-dropzone--active {
+  border-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-gold);
+  transform: scale(1.01);
+}
+
+.wf-dropzone--filled {
+  border-style: solid;
+  border-color: transparent;
+}
+
+.wf-dropzone-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.4rem;
+  animation: wf-float 3s ease-in-out infinite;
+}
+
+@keyframes wf-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.wf-preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 27, 46, 0); /* primary-dark */
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition:
+    opacity var(--duration-fast) var(--ease-silk),
+    background-color var(--duration-fast) var(--ease-silk);
+  pointer-events: none;
+}
+
+.wf-dropzone:hover .wf-preview-overlay {
+  opacity: 1;
+  background: rgba(0, 27, 46, 0.4);
+}
+
+.wf-remove-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 27, 46, 0.6); /* primary-dark */
+  color: var(--color-ivory);
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity var(--duration-fast) var(--ease-silk),
+    transform var(--duration-fast) var(--ease-silk),
+    background-color var(--duration-fast) var(--ease-silk);
+}
+
+.wf-dropzone:hover .wf-remove-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wf-remove-btn:hover {
+  background: var(--color-rose);
+}
+
+/* ---------- Inputs ---------- */
+.wf-input {
+  border: 1px solid var(--color-gold-line);
+  outline: none;
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  transition:
+    border-color var(--duration-fast) var(--ease-silk),
+    box-shadow var(--duration-fast) var(--ease-silk);
+}
+
+.wf-input::placeholder {
+  color: rgba(28, 28, 30, 0.4);
+}
+
+.wf-input:focus {
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.16);
+}
+
+/* ---------- Category chips ---------- */
+.wf-chip {
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-gold-line);
+  background: var(--color-ivory);
+  color: var(--color-primary);
+  transition:
+    transform var(--duration-fast) var(--ease-silk),
+    box-shadow var(--duration-fast) var(--ease-silk),
+    background-color var(--duration-fast) var(--ease-silk),
+    border-color var(--duration-fast) var(--ease-silk),
+    color var(--duration-fast) var(--ease-silk);
+}
+
+.wf-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-primary-dark);
+}
+
+.wf-chip--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary-dark);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-1px) scale(1.03);
+}
+
+/* ---------- Error ---------- */
+.wf-error {
+  color: var(--color-rose);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+/* ---------- Buttons ---------- */
+.wf-btn {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform var(--duration-fast) var(--ease-silk),
+    box-shadow var(--duration-fast) var(--ease-silk),
+    filter var(--duration-fast) var(--ease-silk),
+    opacity var(--duration-fast) var(--ease-silk);
+}
+
+.wf-btn:active {
+  transform: scale(0.97);
+}
+
+.wf-btn--ghost {
+  border: 1px solid var(--color-gold-line);
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.wf-btn--ghost:hover {
+  background: rgba(0, 49, 83, 0.05); /* primary tint */
+}
+
+.wf-btn--primary {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary-dark);
+  color: var(--color-primary-dark);
+  box-shadow: var(--shadow-gold);
+}
+
+.wf-btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.5) 40%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform var(--duration-slow) var(--ease-silk);
+}
+
+.wf-btn--primary:hover::before {
+  transform: translateX(120%);
+}
+
+.wf-btn--primary:hover {
+  background: var(--color-primary-ligh);
+  box-shadow: 0 14px 32px -10px rgba(212, 160, 23, 0.6);
+}
+
+.wf-btn--primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.wf-btn-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wf-spinner {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(0, 27, 46, 0.3);
+  border-top-color: var(--color-primary-dark);
+  animation: wf-spin 0.7s linear infinite;
+}
+
+@keyframes wf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .wf-dropzone-icon,
+  .wf-spinner,
+  .wf-btn--primary::before {
+    animation: none;
+    transition: none;
+  }
+}

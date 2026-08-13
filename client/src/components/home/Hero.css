@@ -1,0 +1,41 @@
+@keyframes float-blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-15px, 15px) scale(0.97);
+  }
+}
+
+.blob {
+  animation: float-blob 14s ease-in-out infinite;
+}
+
+@keyframes underline-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.eyebrow-underline {
+  position: relative;
+  display: inline-block;
+}
+.eyebrow-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-rose));
+  transform-origin: left;
+  animation: underline-grow 0.6s ease-out forwards;
+}

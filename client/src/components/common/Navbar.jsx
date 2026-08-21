@@ -9,6 +9,8 @@ function Navbar() {
     { name: "Home", path: "/" },
     { name: "Works", path: "/works" },
     { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about" },
+    { name: "Admin", path: "/admin/login" },
   ];
 
   return (

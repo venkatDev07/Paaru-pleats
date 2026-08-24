@@ -278,7 +278,7 @@
   position: relative;
   overflow: hidden;
   background: var(--color-primary-dark);
-  color: var(--color-primary-dark);
+  color: var(--color-ivory);
   box-shadow: var(--shadow-gold);
 }
 
@@ -292,7 +292,6 @@
     rgba(255, 255, 255, 0.5) 40%,
     transparent 60%
   );
-  color: white;
   transform: translateX(-120%);
   transition: transform var(--duration-slow) var(--ease-silk);
 }
@@ -302,9 +301,8 @@
 }
 
 .wf-btn--primary:hover {
-  background: var(--color-primary-light);
+  background: var(--color-primary-ligh);
   box-shadow: 0 14px 32px -10px rgba(212, 160, 23, 0.6);
-  color: var(--color-primary-dark);
 }
 
 .wf-btn--primary:disabled {

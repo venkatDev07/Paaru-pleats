@@ -302,8 +302,9 @@
 }
 
 .wf-btn--primary:hover {
-  background: var(--color-primary-ligh);
+  background: var(--color-primary-light);
   box-shadow: 0 14px 32px -10px rgba(212, 160, 23, 0.6);
+  color: var(--color-primary-dark);
 }
 
 .wf-btn--primary:disabled {

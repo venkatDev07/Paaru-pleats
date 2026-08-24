@@ -11,14 +11,9 @@ import notFound from "./middleware/notFound.js";
 import errorHandler from "./middleware/errorHandler.js";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./swagger.js";
-app.use((req, res, next) => {
-  console.log("=== Incoming request ===");
-  console.log("Method:", req.method, "URL:", req.originalUrl);
-  console.log("All headers:", req.headers);
-  next();
-});
+
 const app = express();
-console.log("CLIENT_URL is:", process.env.CLIENT_URL);
+console.log('CLIENT_URL is:', process.env.CLIENT_URL)
 app.set("trust proxy", 1);
 
 // Security & performance middleware

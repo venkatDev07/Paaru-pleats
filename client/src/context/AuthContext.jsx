@@ -24,11 +24,13 @@ export function AuthProvider({ children }) {
 
     const login = async (email, password) => {
         const res = await api.post('/auth/login', { email, password })
+        localStorage.setItem("token", res.data.data.token);
         setAdmin(res.data.data.admin)
     }
 
     const logout = async () => {
         await api.post('/auth/logout')
+        localStorage.removeItem("token");
         setAdmin(null)
     }
 

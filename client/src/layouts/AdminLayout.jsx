@@ -18,7 +18,7 @@ function AdminLayout({ children, title }) {
         <div className="min-h-screen bg-cream flex">
             {/* Desktop sidebar */}
             <aside className="hidden md:block w-64 fixed inset-y-0 left-0 z-30">
-                <AdminSidebar />
+                <AdminSidebar onNavigate={() => setDrawerOpen(false)} />
             </aside>
 
             {/* Mobile drawer */}

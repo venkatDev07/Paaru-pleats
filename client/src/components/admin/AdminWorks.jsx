@@ -27,6 +27,7 @@ function AdminWorks() {
             setToast('Failed to load works')
         } finally {
             setLoading(false)
+            3
         }
     }, [filter])
 
@@ -92,8 +93,8 @@ function AdminWorks() {
                             key={cat}
                             onClick={() => setFilter(cat)}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${filter === cat
-                                    ? 'bg-primary text-cream'
-                                    : 'bg-white text-charcoal/60 border border-primary/10 hover:bg-primary/5'
+                                ? 'bg-primary text-cream'
+                                : 'bg-white text-charcoal/60 border border-primary/10 hover:bg-primary/5'
                                 }`}
                         >
                             {cat}

@@ -4,8 +4,9 @@ import ApiError from "../utils/ApiError.js";
 import asyncHandler from "./asyncHandler.js";
 
 const protect = asyncHandler(async (req, res, next) => {
+  console.log("Cookies received:", req.cookies);
+  console.log("Raw cookie header:", req.headers.cookie);
   const token = req.cookies.token;
-
   if (!token) {
     throw new ApiError(401, "Not authorized, no token");
   }

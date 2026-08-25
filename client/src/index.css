@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-:root {
+@theme {
   /* ============================================================
      SINGLE SOURCE OF THEME TRUTH
      Change the whole site's look by editing values here only.
